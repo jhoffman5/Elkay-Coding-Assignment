@@ -28,6 +28,11 @@ namespace Elkay_Coding_Assignment.Controllers
             return View();
         }
 
+        public IActionResult Persons()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
