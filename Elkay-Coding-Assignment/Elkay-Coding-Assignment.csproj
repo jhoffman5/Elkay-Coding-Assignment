@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Elkay_Coding_Assignment</RootNamespace>
+    <UserSecretsId>dd00e981-8ad4-47b8-b402-dcaafbddd9e6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
