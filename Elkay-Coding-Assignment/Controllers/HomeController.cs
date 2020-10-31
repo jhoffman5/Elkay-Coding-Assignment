@@ -28,7 +28,7 @@ namespace Elkay_Coding_Assignment.Controllers
             return View();
         }
 
-        public IActionResult Persons()
+        public IActionResult People()
         {
             return View();
         }
