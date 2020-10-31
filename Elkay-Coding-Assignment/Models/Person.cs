@@ -8,7 +8,8 @@ namespace Elkay_Coding_Assignment.Models
 {
     public class Person
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [System.ComponentModel.DataAnnotations.Key]
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

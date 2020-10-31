@@ -22,7 +22,7 @@ namespace Elkay_Coding_Assignment.Views.People
         // GET: People
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Person.ToListAsync());
+            return View(await _context.People.ToListAsync());
         }
 
         // GET: People/Details/5
@@ -33,7 +33,7 @@ namespace Elkay_Coding_Assignment.Views.People
                 return NotFound();
             }
 
-            var person = await _context.Person
+            var person = await _context.People
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (person == null)
             {
@@ -73,7 +73,7 @@ namespace Elkay_Coding_Assignment.Views.People
                 return NotFound();
             }
 
-            var person = await _context.Person.FindAsync(id);
+            var person = await _context.People.FindAsync(id);
             if (person == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Elkay_Coding_Assignment.Views.People
                 return NotFound();
             }
 
-            var person = await _context.Person
+            var person = await _context.People
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (person == null)
             {
@@ -139,15 +139,15 @@ namespace Elkay_Coding_Assignment.Views.People
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var person = await _context.Person.FindAsync(id);
-            _context.Person.Remove(person);
+            var person = await _context.People.FindAsync(id);
+            _context.People.Remove(person);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PersonExists(int id)
         {
-            return _context.Person.Any(e => e.ID == id);
+            return _context.People.Any(e => e.ID == id);
         }
     }
 }

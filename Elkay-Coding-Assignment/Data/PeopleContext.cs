@@ -14,7 +14,7 @@ namespace Elkay_Coding_Assignment.Data
         {
         }
 
-        public DbSet<Elkay_Coding_Assignment.Models.Person> Person { get; set; }
+        public DbSet<Elkay_Coding_Assignment.Models.Person> People { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
