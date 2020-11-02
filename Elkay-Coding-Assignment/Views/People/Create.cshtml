@@ -5,9 +5,9 @@
 }
 
 <script language="javascript" type="text/javascript">
-    function validateForm() {
+    function validateForm(e) {
         var summary = "";
-        summary += isvalidLocation();
+        summary += isValidPhoneNumber();
         if (summary != "") {
             alert(summary);
             return false;
@@ -18,14 +18,15 @@
 
     }
     function isValidPhoneNumber() {
-        var uid;
+        var phoneNum;
+        var phoneNumRegex = /^(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})$/
         var temp = document.getElementById("phone-number");
-        uid = temp.value;
-        if (uid == "1") {
-            return ("Please enter a phone number" + "\n");
+        phoneNum = temp.value;
+        if (phoneNumRegex.test(phoneNum)) {
+            return "";
         }
         else {
-            return "";
+            return (phoneNum + " is not a valid phone number.\n");
         }
     }
 </script>
@@ -35,7 +36,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" onsubmit="return validateForm()">
+        <form asp-action="Create" onsubmit="return validateForm(Event)">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
