@@ -4,13 +4,38 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<script language="javascript" type="text/javascript">
+    function validateForm() {
+        var summary = "";
+        summary += isvalidLocation();
+        if (summary != "") {
+            alert(summary);
+            return false;
+        }
+        else {
+            return true;
+        }
 
-<h4>Person</h4>
+    }
+    function isValidPhoneNumber() {
+        var uid;
+        var temp = document.getElementById("phone-number");
+        uid = temp.value;
+        if (uid == "1") {
+            return ("Please enter a phone number" + "\n");
+        }
+        else {
+            return "";
+        }
+    }
+</script>
+
+<h1>Create Person</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" onsubmit="return validateForm()">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -49,7 +74,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+                <input asp-for="Phone" id="phone-number" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger small"></span>
             </div>
             <div class="form-group">
@@ -60,7 +85,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Go Back Home</a>
 </div>
 
 @section Scripts {
